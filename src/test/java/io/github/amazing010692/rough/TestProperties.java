@@ -24,7 +24,9 @@ public class TestProperties {
 		//Load the OR file.
 		OR.load(fis);
 		
+		//You can use below to call the locator from OR.properties file.
 		//driver.findElement(By.cssSelector(OR.getProperty("bmlBtn"))).click();
+		
 		System.out.println(config.getProperty("browser"));
 		System.out.println(OR.getProperty("bmlBtn"));	
 	}
