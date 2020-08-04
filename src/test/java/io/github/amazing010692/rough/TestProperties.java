@@ -16,6 +16,8 @@ public class TestProperties {
 		
 		//Load the configuration file.
 		config.load(fis);
+		
+		System.out.println(config.getProperty("browser"));
 	}
 
 	
