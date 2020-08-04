@@ -8,7 +8,10 @@ public class TestProperties {
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		
+		System.out.println(System.getProperty("user.dir"));
 		Properties Config = new Properties();
+		
+		//Path of Config.properties file.
 		FileInputStream fis = new FileInputStream("C:\\Users\\hello\\Documents\\Java_Tests\\DataDrivenFramework\\src\\test\\resources\\properties\\Config.properties");
 	}
 
