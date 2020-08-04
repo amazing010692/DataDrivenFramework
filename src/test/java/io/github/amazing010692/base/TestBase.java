@@ -1,5 +1,6 @@
 package io.github.amazing010692.base;
 
+import java.io.FileInputStream;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
@@ -11,6 +12,7 @@ public class TestBase {
 	public static WebDriver driver;
 	public static Properties config = new Properties();
 	public static Properties OR = new Properties();
+	public static FileInputStream fis;
 	
 	@BeforeSuite
 	public void setUp() {
