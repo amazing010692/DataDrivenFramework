@@ -83,6 +83,7 @@ public class TestBase {
 			
 			driver.get(config.getProperty("testsiteurl"));
 			driver.manage().window().maximize();
+			driver.manage().timeouts().implicitlyWait(config.getProperty("implicit.wait"), unit)
 		}
 	}
 	
