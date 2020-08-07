@@ -80,6 +80,8 @@ public class TestBase {
 				driver = new OperaDriver(options);
 			
 			}
+			
+			driver.get(config.getProperty("testsiteurl"));
 		}
 	}
 	
