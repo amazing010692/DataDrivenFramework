@@ -82,6 +82,7 @@ public class TestBase {
 			}
 			
 			driver.get(config.getProperty("testsiteurl"));
+			driver.manage().window().maximize();
 		}
 	}
 	
