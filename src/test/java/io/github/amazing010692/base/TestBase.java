@@ -7,9 +7,16 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.opera.OperaOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestBase {
 	
@@ -47,14 +54,31 @@ public class TestBase {
 				e.printStackTrace();
 			}
 			
-			if(config.getProperty("browser").equals("firefox")) {
-				//System.setProperty("webdriver.gecko.driver", "gecko.exe");
-				driver = new FirefoxDriver();
-				
-			} else if(config.getProperty("browser").equals("firefox")) {
-				//System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+			if(config.getProperty("browser").equals("chrome")) {
+				WebDriverManager.chromedriver().setup();
 				driver = new ChromeDriver();
 				
+			} else if(config.getProperty("browser").equals("firefox")) {
+				WebDriverManager.firefoxdriver().setup();
+				driver = new FirefoxDriver();
+				
+			} else if(config.getProperty("browser").equals("ie")) {		
+				WebDriverManager.iedriver().setup();
+				driver = new InternetExplorerDriver();
+				
+			} else if(config.getProperty("browser").equals("edge")) {		
+				WebDriverManager.edgedriver().setup();
+				driver = new EdgeDriver();
+			
+			} else if(config.getProperty("browser").equals("opera")) {		
+				DesiredCapabilities capabilities = new DesiredCapabilities();
+				OperaOptions options = new OperaOptions();
+				options.setBinary("C:\\Users\\hello\\AppData\\Local\\Programs\\Opera\\64.0.3417.73\\opera.exe");
+				capabilities.setCapability(OperaOptions.CAPABILITY, options);
+				
+				WebDriverManager.operadriver().setup();
+				driver = new OperaDriver(options);
+			
 			}
 		}
 	}
