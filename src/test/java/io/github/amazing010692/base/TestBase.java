@@ -44,6 +44,12 @@ public class TestBase {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+			if(config.getProperty("browser").equals("firefox")) {
+				//System.setProperty("webdriver.gecko.driver", "gecko.exe");
+				driver = new FirefoxDriver();
+				
+			}
 		}
 	}
 	
