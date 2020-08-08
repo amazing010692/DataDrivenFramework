@@ -62,6 +62,7 @@ public class TestBase {
 			if(config.getProperty("browser").equals("chrome")) {
 				WebDriverManager.chromedriver().setup();
 				driver = new ChromeDriver();
+				log.debug("Chrome Launched !!!");
 				
 			} else if(config.getProperty("browser").equals("firefox")) {
 				WebDriverManager.firefoxdriver().setup();
