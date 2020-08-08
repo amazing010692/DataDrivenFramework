@@ -7,6 +7,7 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.logging.Log;
+import org.apache.logging.log4j.core.config.properties.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -30,7 +31,8 @@ public class TestBase {
 	
 	@BeforeSuite
 	public void setUp() {
-		if(driver == null) {		
+		if(driver == null) {
+			PropertyConfigurator.configure
 			try {
 				fis = new FileInputStream(System.getProperty("user.dir") + "\\src\\test\\resources\\properties\\Config.properties");
 			} catch (FileNotFoundException e) {
