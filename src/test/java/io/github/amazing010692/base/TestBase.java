@@ -32,7 +32,7 @@ public class TestBase {
 	@BeforeSuite
 	public void setUp() {
 		if(driver == null) {
-			//PropertyConfigurator.configure
+			//PropertyConfigurator.configure("");
 			try {
 				fis = new FileInputStream(System.getProperty("user.dir") + "\\src\\test\\resources\\properties\\Config.properties");
 			} catch (FileNotFoundException e) {
