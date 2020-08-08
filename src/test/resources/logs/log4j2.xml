@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
 	<Properties>
-		<Property name="logPath">./logs</Property>
-		<Property name="rollingFileName">testlog</Property>
+		<Property name="logPath">./src/test/resources/logs</Property>
+		<Property name="rollingFileName">Application</Property>
 		<Property name="consolePattern"> %d{DEFAULT} [%t] [%highlight{%-5level}]
 			%c:%L:%F - %msg%n%throwable{short.lineNumber}</Property>
 		<Property name="rollingFilePattern">%d{DEFAULT} [%t] [%highlight{%-5level}]
