@@ -67,14 +67,17 @@ public class TestBase {
 			} else if(config.getProperty("browser").equals("firefox")) {
 				WebDriverManager.firefoxdriver().setup();
 				driver = new FirefoxDriver();
+				log.debug("Firefox Launched !!!");
 				
 			} else if(config.getProperty("browser").equals("ie")) {		
 				WebDriverManager.iedriver().setup();
 				driver = new InternetExplorerDriver();
+				log.debug("IE Launched !!!");
 				
 			} else if(config.getProperty("browser").equals("edge")) {		
 				WebDriverManager.edgedriver().setup();
 				driver = new EdgeDriver();
+				log.debug("Edge browser Launched !!!");
 			
 			} else if(config.getProperty("browser").equals("opera")) {		
 				DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -84,6 +87,7 @@ public class TestBase {
 				
 				WebDriverManager.operadriver().setup();
 				driver = new OperaDriver(options);
+				log.debug("Opera Launched !!!");
 			
 			}
 			
