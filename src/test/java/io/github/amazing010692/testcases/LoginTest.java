@@ -9,10 +9,10 @@ public class LoginTest extends TestBase {
 	
 	@Test
 	public void loginAsBankManager() throws InterruptedException {
-		logger.debug("Inside Login Test");
+		logger.info("Inside Login Test");
 		driver.findElement(By.cssSelector(OR.getProperty("bmlBtn"))).click();
 		Thread.sleep(3000);
-		logger.debug("Login successfully executed");
+		logger.info("Login successfully executed");
 	}
 
 }

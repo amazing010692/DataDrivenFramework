@@ -98,10 +98,10 @@ public class TestBase {
 			
 			}
 			
-			driver.get(config.getProperty("testsiteurl"));
-			logger.info("Navigated to: " + config.getProperty("testsiteurl"));
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(Integer.parseInt(config.getProperty("implicit.wait")), TimeUnit.SECONDS);
+			driver.get(config.getProperty("testsiteurl"));
+			logger.info("Navigated to: " + config.getProperty("testsiteurl"));
 		}
 	}
 	
