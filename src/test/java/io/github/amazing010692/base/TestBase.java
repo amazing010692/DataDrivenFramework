@@ -35,7 +35,7 @@ public class TestBase {
 	public void setUp() {
 		if(driver == null) {
 			LoggerContext context = (LoggerContext) LogManager.getContext(false);
-			File file = new File("./src/test/java/log4j.properties");
+			File file = new File("./src/test/resources/logs/log4j2.xml");
 			context.setConfigLocation(file.toURI());
 			
 			try {
