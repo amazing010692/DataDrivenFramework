@@ -41,7 +41,7 @@ public class TestBase {
 			}
 			try {
 				config.load(fis);
-				logger.debug("Config file loaded !!!");
+				logger.info("Config file loaded !!!");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -55,7 +55,7 @@ public class TestBase {
 			}
 			try {
 				OR.load(fis);
-				logger.debug("OR file loaded !!!");
+				logger.info("OR file loaded !!!");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -64,22 +64,22 @@ public class TestBase {
 			if(config.getProperty("browser").equals("chrome")) {
 				WebDriverManager.chromedriver().setup();
 				driver = new ChromeDriver();
-				logger.debug("Chrome Launched !!!");
+				logger.info("Chrome Launched !!!");
 				
 			} else if(config.getProperty("browser").equals("firefox")) {
 				WebDriverManager.firefoxdriver().setup();
 				driver = new FirefoxDriver();
-				logger.debug("Firefox Launched !!!");
+				logger.info("Firefox Launched !!!");
 				
 			} else if(config.getProperty("browser").equals("ie")) {		
 				WebDriverManager.iedriver().setup();
 				driver = new InternetExplorerDriver();
-				logger.debug("IE Launched !!!");
+				logger.info("IE Launched !!!");
 				
 			} else if(config.getProperty("browser").equals("edge")) {		
 				WebDriverManager.edgedriver().setup();
 				driver = new EdgeDriver();
-				logger.debug("Edge browser Launched !!!");
+				logger.info("Edge browser Launched !!!");
 			
 			} else if(config.getProperty("browser").equals("opera")) {		
 				DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -89,12 +89,12 @@ public class TestBase {
 				
 				WebDriverManager.operadriver().setup();
 				driver = new OperaDriver(options);
-				logger.debug("Opera Launched !!!");
+				logger.info("Opera Launched !!!");
 			
 			}
 			
 			driver.get(config.getProperty("testsiteurl"));
-			logger.debug("Navigated to: " + config.getProperty("testsiteurl"));
+			logger.info("Navigated to: " + config.getProperty("testsiteurl"));
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(Integer.parseInt(config.getProperty("implicit.wait")), TimeUnit.SECONDS);
 		}
@@ -106,7 +106,7 @@ public class TestBase {
 			driver.quit();
 		}
 		
-		logger.debug("Test Execution Completed !!!");
+		logger.info("Test Execution Completed !!!");
 	}
 
 }
