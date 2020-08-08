@@ -1,5 +1,6 @@
 package io.github.amazing010692.base;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -8,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.LoggerContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -32,7 +34,10 @@ public class TestBase {
 	@BeforeSuite
 	public void setUp() {
 		if(driver == null) {
-			//PropertyConfigurator.configure("");
+			LoggerContext context = (LoggerContext) LogManager.getContext(false);
+			File file = new File("./src/test/java/log4j.properties");
+			context.setConfigLocation(file.toURI());
+			
 			try {
 				fis = new FileInputStream(System.getProperty("user.dir") + "\\src\\test\\resources\\properties\\Config.properties");
 			} catch (FileNotFoundException e) {
