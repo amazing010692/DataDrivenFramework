@@ -6,8 +6,8 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.commons.logging.Log;
-import org.apache.logging.log4j.core.config.properties.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -27,12 +27,12 @@ public class TestBase {
 	public static Properties config = new Properties();
 	public static Properties OR = new Properties();
 	public static FileInputStream fis;
-	public static Log log;
+	public static final Logger logger = LogManager.getLogger(TestBase.class.getName());
 	
 	@BeforeSuite
 	public void setUp() {
 		if(driver == null) {
-			PropertyConfigurator.configure
+			//PropertyConfigurator.configure
 			try {
 				fis = new FileInputStream(System.getProperty("user.dir") + "\\src\\test\\resources\\properties\\Config.properties");
 			} catch (FileNotFoundException e) {
@@ -41,7 +41,7 @@ public class TestBase {
 			}
 			try {
 				config.load(fis);
-				log.debug("Config file loaded !!!");
+				logger.debug("Config file loaded !!!");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -55,7 +55,7 @@ public class TestBase {
 			}
 			try {
 				OR.load(fis);
-				log.debug("OR file loaded !!!");
+				logger.debug("OR file loaded !!!");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -64,22 +64,22 @@ public class TestBase {
 			if(config.getProperty("browser").equals("chrome")) {
 				WebDriverManager.chromedriver().setup();
 				driver = new ChromeDriver();
-				log.debug("Chrome Launched !!!");
+				logger.debug("Chrome Launched !!!");
 				
 			} else if(config.getProperty("browser").equals("firefox")) {
 				WebDriverManager.firefoxdriver().setup();
 				driver = new FirefoxDriver();
-				log.debug("Firefox Launched !!!");
+				logger.debug("Firefox Launched !!!");
 				
 			} else if(config.getProperty("browser").equals("ie")) {		
 				WebDriverManager.iedriver().setup();
 				driver = new InternetExplorerDriver();
-				log.debug("IE Launched !!!");
+				logger.debug("IE Launched !!!");
 				
 			} else if(config.getProperty("browser").equals("edge")) {		
 				WebDriverManager.edgedriver().setup();
 				driver = new EdgeDriver();
-				log.debug("Edge browser Launched !!!");
+				logger.debug("Edge browser Launched !!!");
 			
 			} else if(config.getProperty("browser").equals("opera")) {		
 				DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -89,12 +89,12 @@ public class TestBase {
 				
 				WebDriverManager.operadriver().setup();
 				driver = new OperaDriver(options);
-				log.debug("Opera Launched !!!");
+				logger.debug("Opera Launched !!!");
 			
 			}
 			
 			driver.get(config.getProperty("testsiteurl"));
-			log.debug("Navigated to: " + config.getProperty("testsiteurl"));
+			logger.debug("Navigated to: " + config.getProperty("testsiteurl"));
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(Integer.parseInt(config.getProperty("implicit.wait")), TimeUnit.SECONDS);
 		}
@@ -106,7 +106,7 @@ public class TestBase {
 			driver.quit();
 		}
 		
-		log.debug("Test Execution Completed !!!");
+		logger.debug("Test Execution Completed !!!");
 	}
 
 }
