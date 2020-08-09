@@ -26,3 +26,17 @@
 			io.github.amazing010692.base.TestBase:15:LoginTest.java - Login successfully executed
 2020-08-09 19:05:36,842 [main] [INFO ]
 			io.github.amazing010692.base.TestBase:114:TestBase.java - Test Execution Completed !!!
+2020-08-09 23:59:51,353 [main] [INFO ]
+			io.github.amazing010692.base.TestBase:51:TestBase.java - Config file loaded !!!
+2020-08-09 23:59:51,373 [main] [INFO ]
+			io.github.amazing010692.base.TestBase:65:TestBase.java - OR file loaded !!!
+2020-08-10 00:00:03,516 [main] [INFO ]
+			io.github.amazing010692.base.TestBase:74:TestBase.java - Chrome Launched !!!
+2020-08-10 00:00:07,689 [main] [INFO ]
+			io.github.amazing010692.base.TestBase:106:TestBase.java - Navigated to: http://www.way2automation.com/angularjs-protractor/banking/#/login
+2020-08-10 00:00:07,772 [main] [INFO ]
+			io.github.amazing010692.base.TestBase:13:LoginTest.java - Inside Login Test
+2020-08-10 00:00:08,774 [main] [INFO ]
+			io.github.amazing010692.base.TestBase:18:LoginTest.java - Login successfully executed
+2020-08-10 00:00:09,754 [main] [INFO ]
+			io.github.amazing010692.base.TestBase:125:TestBase.java - Test Execution Completed !!!

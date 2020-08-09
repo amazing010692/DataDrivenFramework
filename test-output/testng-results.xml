@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Data Driven Basics" duration-ms="3806" started-at="2020-08-09T11:05:31Z" finished-at="2020-08-09T11:05:35Z">
+  <suite name="Data Driven Basics" duration-ms="1091" started-at="2020-08-09T16:00:07Z" finished-at="2020-08-09T16:00:08Z">
     <groups>
     </groups>
-    <test name="LoginTest" duration-ms="3806" started-at="2020-08-09T11:05:31Z" finished-at="2020-08-09T11:05:35Z">
+    <test name="LoginTest" duration-ms="1091" started-at="2020-08-09T16:00:07Z" finished-at="2020-08-09T16:00:08Z">
       <class name="io.github.amazing010692.testcases.LoginTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:io.github.amazing010692.testcases.LoginTest@1c5920df]" name="setUp" is-config="true" duration-ms="36299" started-at="2020-08-09T11:04:55Z" finished-at="2020-08-09T11:05:31Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:io.github.amazing010692.testcases.LoginTest@4b29d1d2]" name="setUp" is-config="true" duration-ms="16987" started-at="2020-08-09T15:59:50Z" finished-at="2020-08-09T16:00:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="loginAsBankManager()[pri:0, instance:io.github.amazing010692.testcases.LoginTest@1c5920df]" name="loginAsBankManager" duration-ms="3520" started-at="2020-08-09T11:05:32Z" finished-at="2020-08-09T11:05:35Z">
+        <test-method status="PASS" signature="loginAsBankManager()[pri:0, instance:io.github.amazing010692.testcases.LoginTest@4b29d1d2]" name="loginAsBankManager" duration-ms="1012" started-at="2020-08-09T16:00:07Z" finished-at="2020-08-09T16:00:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginAsBankManager -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:io.github.amazing010692.testcases.LoginTest@1c5920df]" name="tearDown" is-config="true" duration-ms="1060" started-at="2020-08-09T11:05:35Z" finished-at="2020-08-09T11:05:36Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:io.github.amazing010692.testcases.LoginTest@4b29d1d2]" name="tearDown" is-config="true" duration-ms="910" started-at="2020-08-09T16:00:08Z" finished-at="2020-08-09T16:00:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
