@@ -13,7 +13,7 @@ public class LoginTest extends TestBase {
 		logger.info("Inside Login Test");
 		driver.findElement(By.cssSelector(OR.getProperty("bmlBtn"))).click();
 		
-		Assert.assertTrue(isElementPresent());
+		Assert.assertTrue(isElementPresent(By.cssSelector(OR.getProperty("addCustBtn"))), "Login not successful");
 		
 		logger.info("Login successfully executed");
 	}
