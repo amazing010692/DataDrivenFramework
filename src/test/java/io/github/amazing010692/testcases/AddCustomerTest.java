@@ -11,9 +11,10 @@ public class AddCustomerTest extends TestBase {
 	@Test(dataProvider = "getData")
 	public void addCustomer(String firstName, String lastName, String postCode) {
 		driver.findElement(By.cssSelector(OR.getProperty("addCustBtn"))).click();
-		driver.findElement(By.cssSelector(OR.getProperty("addCustBtn"))).click();
-		driver.findElement(By.cssSelector(OR.getProperty("addCustBtn"))).click();
-		driver.findElement(By.cssSelector(OR.getProperty("addCustBtn"))).click();
+		driver.findElement(By.cssSelector(OR.getProperty("firstname"))).sendKeys(firstName);
+		driver.findElement(By.cssSelector(OR.getProperty("lastname"))).sendKeys(lastName);
+		driver.findElement(By.cssSelector(OR.getProperty("postcode"))).sendKeys(postCode);
+		driver.findElement(By.cssSelector(OR.getProperty("addBtn"))).click();
 	}
 	
 	@DataProvider
