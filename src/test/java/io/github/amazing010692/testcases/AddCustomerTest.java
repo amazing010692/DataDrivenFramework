@@ -1,5 +1,6 @@
 package io.github.amazing010692.testcases;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -9,11 +10,15 @@ public class AddCustomerTest extends TestBase {
 	
 	@Test(dataProvider = "getData")
 	public void addCustomer(String firstName, String lastName, String postCode) {
-		
+		driver.findElement(By.cssSelector(OR.getProperty("addCustBtn"))).click();
+		driver.findElement(By.cssSelector(OR.getProperty("addCustBtn"))).click();
+		driver.findElement(By.cssSelector(OR.getProperty("addCustBtn"))).click();
+		driver.findElement(By.cssSelector(OR.getProperty("addCustBtn"))).click();
 	}
 	
 	@DataProvider
 	public Object[][] getData() {
+		String sheetName = "AddCustomerTest";
 		int rows = excel.getRowCount(sheetName);
 		int cols = excel.getColumnCount(sheetName);
 		
