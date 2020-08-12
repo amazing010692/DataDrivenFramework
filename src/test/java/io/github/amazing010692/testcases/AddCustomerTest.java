@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 public class AddCustomerTest {
 	
-	@Test
+	@Test(dataProvider = "getData")
 	public void addCustomer() {
 		
 	}
