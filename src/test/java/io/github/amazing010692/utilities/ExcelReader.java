@@ -1,4 +1,4 @@
-package com.w2a.utilities;
+package io.github.amazing010692.utilities;
 
 
 import java.io.FileInputStream;
