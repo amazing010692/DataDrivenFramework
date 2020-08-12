@@ -23,6 +23,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
+import io.github.amazing010692.utilities.ExcelReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestBase {
@@ -32,6 +33,7 @@ public class TestBase {
 	public static Properties OR = new Properties();
 	public static FileInputStream fis;
 	public static final Logger logger = LogManager.getLogger(TestBase.class.getName());
+	public static ExcelReader excel = new ExcelReader(System.getProperty("user.dir") + "\\src\\test\\resources\\excel\\testdata.xlsx");
 	
 	@BeforeSuite
 	public void setUp() {
