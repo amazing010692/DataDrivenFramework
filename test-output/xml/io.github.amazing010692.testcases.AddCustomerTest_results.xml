@@ -4,10 +4,10 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="6.780">
+           time="2.326">
   <properties />
   
   
-            <testcase name="addCustomer" time="6.780" classname="io.github.amazing010692.testcases.AddCustomerTest" />
+            <testcase name="addCustomer" time="2.326" classname="io.github.amazing010692.testcases.AddCustomerTest" />
       
 </testsuite>

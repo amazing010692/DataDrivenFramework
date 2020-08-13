@@ -7,13 +7,19 @@
     <line>
       <![CDATA[<a target="blank" href="C:\Users\hello\Pictures\screenshots\error.jpg">Screenshot</a>]]>
     </line>
+    <line>
+      <![CDATA[<br>]]>
+    </line>
+    <line>
+      <![CDATA[<a target="blank" href="C:\Users\hello\Pictures\screenshots\error.jpg"><img src="C:\Users\hello\Pictures\screenshots\error.jpg" height=200 width=200></img></a>]]>
+    </line>
   </reporter-output>
-  <suite name="Data Driven Basics" duration-ms="12296" started-at="2020-08-13T16:48:44Z" finished-at="2020-08-13T16:48:56Z">
+  <suite name="Data Driven Basics" duration-ms="5707" started-at="2020-08-13T17:05:02Z" finished-at="2020-08-13T17:05:07Z">
     <groups>
     </groups>
-    <test name="Bank Manager Login Test" duration-ms="4561" started-at="2020-08-13T16:48:44Z" finished-at="2020-08-13T16:48:49Z">
+    <test name="Bank Manager Login Test" duration-ms="1914" started-at="2020-08-13T17:05:02Z" finished-at="2020-08-13T17:05:04Z">
       <class name="io.github.amazing010692.testcases.BankManagerLoginTest">
-        <test-method status="PASS" signature="loginAsBankManager()[pri:0, instance:io.github.amazing010692.testcases.BankManagerLoginTest@4a11eb84]" name="loginAsBankManager" duration-ms="4450" started-at="2020-08-13T16:48:44Z" finished-at="2020-08-13T16:48:49Z">
+        <test-method status="PASS" signature="loginAsBankManager()[pri:0, instance:io.github.amazing010692.testcases.BankManagerLoginTest@4a11eb84]" name="loginAsBankManager" duration-ms="1640" started-at="2020-08-13T17:05:02Z" finished-at="2020-08-13T17:05:04Z">
           <reporter-output>
             <line>
               <![CDATA[Login successfully executed]]>
@@ -21,17 +27,23 @@
             <line>
               <![CDATA[<a target="blank" href="C:\Users\hello\Pictures\screenshots\error.jpg">Screenshot</a>]]>
             </line>
+            <line>
+              <![CDATA[<br>]]>
+            </line>
+            <line>
+              <![CDATA[<a target="blank" href="C:\Users\hello\Pictures\screenshots\error.jpg"><img src="C:\Users\hello\Pictures\screenshots\error.jpg" height=200 width=200></img></a>]]>
+            </line>
           </reporter-output>
         </test-method> <!-- loginAsBankManager -->
       </class> <!-- io.github.amazing010692.testcases.BankManagerLoginTest -->
     </test> <!-- Bank Manager Login Test -->
-    <test name="Add Customer Test" duration-ms="7499" started-at="2020-08-13T16:48:49Z" finished-at="2020-08-13T16:48:56Z">
+    <test name="Add Customer Test" duration-ms="3583" started-at="2020-08-13T17:05:04Z" finished-at="2020-08-13T17:05:07Z">
       <class name="io.github.amazing010692.testcases.AddCustomerTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:io.github.amazing010692.testcases.AddCustomerTest@57ac5227]" name="setUp" is-config="true" duration-ms="33186" started-at="2020-08-13T16:48:11Z" finished-at="2020-08-13T16:48:44Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:io.github.amazing010692.testcases.AddCustomerTest@57ac5227]" name="setUp" is-config="true" duration-ms="26129" started-at="2020-08-13T17:04:36Z" finished-at="2020-08-13T17:05:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="addCustomer(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:io.github.amazing010692.testcases.AddCustomerTest@57ac5227]" name="addCustomer" duration-ms="6780" started-at="2020-08-13T16:48:50Z" data-provider="getData" finished-at="2020-08-13T16:48:56Z">
+        <test-method status="PASS" signature="addCustomer(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:io.github.amazing010692.testcases.AddCustomerTest@57ac5227]" name="addCustomer" duration-ms="2326" started-at="2020-08-13T17:05:05Z" data-provider="getData" finished-at="2020-08-13T17:05:07Z">
           <params>
             <param index="0">
               <value>
@@ -57,7 +69,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addCustomer -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:io.github.amazing010692.testcases.AddCustomerTest@57ac5227]" name="tearDown" is-config="true" duration-ms="1749" started-at="2020-08-13T16:48:56Z" finished-at="2020-08-13T16:48:58Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:io.github.amazing010692.testcases.AddCustomerTest@57ac5227]" name="tearDown" is-config="true" duration-ms="2125" started-at="2020-08-13T17:05:07Z" finished-at="2020-08-13T17:05:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
