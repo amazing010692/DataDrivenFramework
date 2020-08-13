@@ -5,6 +5,7 @@
 	<listeners>
 		<listener class-name="org.uncommons.reportng.HTMLReporter"></listener>
 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter"></listener>
+		<listener class-name="io.github.amazing010692.listeners.CustomListeners"></listener>
 	</listeners>
 
 	<test name="Bank Manager Login Test">
