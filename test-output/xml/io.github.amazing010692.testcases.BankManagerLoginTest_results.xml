@@ -4,10 +4,10 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="3.475">
+           time="4.450">
   <properties />
   
   
-            <testcase name="loginAsBankManager" time="3.475" classname="io.github.amazing010692.testcases.BankManagerLoginTest" />
+            <testcase name="loginAsBankManager" time="4.450" classname="io.github.amazing010692.testcases.BankManagerLoginTest" />
       
 </testsuite>
