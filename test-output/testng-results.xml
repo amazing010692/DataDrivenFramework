@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Data Driven Basics" duration-ms="21327" started-at="2020-08-12T16:31:10Z" finished-at="2020-08-12T16:31:32Z">
+  <suite name="Data Driven Basics" duration-ms="7944" started-at="2020-08-13T16:04:18Z" finished-at="2020-08-13T16:04:26Z">
     <groups>
     </groups>
-    <test name="Bank Manager Login Test" duration-ms="9540" started-at="2020-08-12T16:31:10Z" finished-at="2020-08-12T16:31:20Z">
+    <test name="Bank Manager Login Test" duration-ms="2735" started-at="2020-08-13T16:04:18Z" finished-at="2020-08-13T16:04:21Z">
       <class name="io.github.amazing010692.testcases.BankManagerLoginTest">
-        <test-method status="PASS" signature="loginAsBankManager()[pri:0, instance:io.github.amazing010692.testcases.BankManagerLoginTest@4983159f]" name="loginAsBankManager" duration-ms="9216" started-at="2020-08-12T16:31:10Z" finished-at="2020-08-12T16:31:20Z">
+        <test-method status="PASS" signature="loginAsBankManager()[pri:0, instance:io.github.amazing010692.testcases.BankManagerLoginTest@4a11eb84]" name="loginAsBankManager" duration-ms="2262" started-at="2020-08-13T16:04:18Z" finished-at="2020-08-13T16:04:20Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginAsBankManager -->
       </class> <!-- io.github.amazing010692.testcases.BankManagerLoginTest -->
     </test> <!-- Bank Manager Login Test -->
-    <test name="Add Customer Test" duration-ms="10834" started-at="2020-08-12T16:31:21Z" finished-at="2020-08-12T16:31:32Z">
+    <test name="Add Customer Test" duration-ms="4897" started-at="2020-08-13T16:04:21Z" finished-at="2020-08-13T16:04:26Z">
       <class name="io.github.amazing010692.testcases.AddCustomerTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:io.github.amazing010692.testcases.AddCustomerTest@366c4480]" name="setUp" is-config="true" duration-ms="83153" started-at="2020-08-12T16:29:47Z" finished-at="2020-08-12T16:31:10Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:io.github.amazing010692.testcases.AddCustomerTest@57ac5227]" name="setUp" is-config="true" duration-ms="38655" started-at="2020-08-13T16:03:39Z" finished-at="2020-08-13T16:04:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="addCustomer(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:io.github.amazing010692.testcases.AddCustomerTest@366c4480]" name="addCustomer" duration-ms="8008" started-at="2020-08-12T16:31:24Z" data-provider="getData" finished-at="2020-08-12T16:31:32Z">
+        <test-method status="PASS" signature="addCustomer(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:io.github.amazing010692.testcases.AddCustomerTest@57ac5227]" name="addCustomer" duration-ms="3749" started-at="2020-08-13T16:04:22Z" data-provider="getData" finished-at="2020-08-13T16:04:26Z">
           <params>
             <param index="0">
               <value>
@@ -45,7 +45,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addCustomer -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:io.github.amazing010692.testcases.AddCustomerTest@366c4480]" name="tearDown" is-config="true" duration-ms="26124" started-at="2020-08-12T16:31:32Z" finished-at="2020-08-12T16:31:58Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:io.github.amazing010692.testcases.AddCustomerTest@57ac5227]" name="tearDown" is-config="true" duration-ms="1842" started-at="2020-08-13T16:04:26Z" finished-at="2020-08-13T16:04:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
