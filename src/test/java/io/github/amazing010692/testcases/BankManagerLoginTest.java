@@ -18,6 +18,7 @@ public class BankManagerLoginTest extends TestBase {
 		
 		logger.info("Login successfully executed");
 		Reporter.log("Login successfully executed");
+		Reporter.log("<a href=\"C:\\Users\\hello\\Pictures\\screenshots\\error.jpg\">Screenshot</a>");
 	}
 
 }
