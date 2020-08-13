@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
+    <line>
+      <![CDATA[Login successfully executed]]>
+    </line>
   </reporter-output>
-  <suite name="Data Driven Basics" duration-ms="7944" started-at="2020-08-13T16:04:18Z" finished-at="2020-08-13T16:04:26Z">
+  <suite name="Data Driven Basics" duration-ms="11199" started-at="2020-08-13T16:21:56Z" finished-at="2020-08-13T16:22:07Z">
     <groups>
     </groups>
-    <test name="Bank Manager Login Test" duration-ms="2735" started-at="2020-08-13T16:04:18Z" finished-at="2020-08-13T16:04:21Z">
+    <test name="Bank Manager Login Test" duration-ms="3590" started-at="2020-08-13T16:21:56Z" finished-at="2020-08-13T16:21:59Z">
       <class name="io.github.amazing010692.testcases.BankManagerLoginTest">
-        <test-method status="PASS" signature="loginAsBankManager()[pri:0, instance:io.github.amazing010692.testcases.BankManagerLoginTest@4a11eb84]" name="loginAsBankManager" duration-ms="2262" started-at="2020-08-13T16:04:18Z" finished-at="2020-08-13T16:04:20Z">
+        <test-method status="PASS" signature="loginAsBankManager()[pri:0, instance:io.github.amazing010692.testcases.BankManagerLoginTest@4a11eb84]" name="loginAsBankManager" duration-ms="3475" started-at="2020-08-13T16:21:56Z" finished-at="2020-08-13T16:21:59Z">
           <reporter-output>
+            <line>
+              <![CDATA[Login successfully executed]]>
+            </line>
           </reporter-output>
         </test-method> <!-- loginAsBankManager -->
       </class> <!-- io.github.amazing010692.testcases.BankManagerLoginTest -->
     </test> <!-- Bank Manager Login Test -->
-    <test name="Add Customer Test" duration-ms="4897" started-at="2020-08-13T16:04:21Z" finished-at="2020-08-13T16:04:26Z">
+    <test name="Add Customer Test" duration-ms="7390" started-at="2020-08-13T16:22:00Z" finished-at="2020-08-13T16:22:07Z">
       <class name="io.github.amazing010692.testcases.AddCustomerTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:io.github.amazing010692.testcases.AddCustomerTest@57ac5227]" name="setUp" is-config="true" duration-ms="38655" started-at="2020-08-13T16:03:39Z" finished-at="2020-08-13T16:04:18Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:io.github.amazing010692.testcases.AddCustomerTest@57ac5227]" name="setUp" is-config="true" duration-ms="59048" started-at="2020-08-13T16:20:57Z" finished-at="2020-08-13T16:21:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="addCustomer(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:io.github.amazing010692.testcases.AddCustomerTest@57ac5227]" name="addCustomer" duration-ms="3749" started-at="2020-08-13T16:04:22Z" data-provider="getData" finished-at="2020-08-13T16:04:26Z">
+        <test-method status="PASS" signature="addCustomer(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:io.github.amazing010692.testcases.AddCustomerTest@57ac5227]" name="addCustomer" duration-ms="6528" started-at="2020-08-13T16:22:01Z" data-provider="getData" finished-at="2020-08-13T16:22:07Z">
           <params>
             <param index="0">
               <value>
@@ -45,7 +51,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addCustomer -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:io.github.amazing010692.testcases.AddCustomerTest@57ac5227]" name="tearDown" is-config="true" duration-ms="1842" started-at="2020-08-13T16:04:26Z" finished-at="2020-08-13T16:04:28Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:io.github.amazing010692.testcases.AddCustomerTest@57ac5227]" name="tearDown" is-config="true" duration-ms="1520" started-at="2020-08-13T16:22:07Z" finished-at="2020-08-13T16:22:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
