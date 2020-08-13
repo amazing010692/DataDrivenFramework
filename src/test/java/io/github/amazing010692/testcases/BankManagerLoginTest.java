@@ -2,6 +2,7 @@ package io.github.amazing010692.testcases;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 import io.github.amazing010692.base.TestBase;
@@ -16,6 +17,7 @@ public class BankManagerLoginTest extends TestBase {
 		Assert.assertTrue(isElementPresent(By.cssSelector(OR.getProperty("addCustBtn"))), "Login not successful");
 		
 		logger.info("Login successfully executed");
+		Reporter.log("Login successfully executed");
 	}
 
 }
