@@ -24,6 +24,8 @@ public class AddCustomerTest extends TestBase {
 		alert.accept();
 		
 		logger.info("Successfully Added a Customer");
+		
+		Assert.fail("Customer not added successfully");
 	}
 	
 	@DataProvider
