@@ -11,7 +11,7 @@ public class BankManagerLoginTest extends TestBase {
 	
 	@Test
 	public void loginAsBankManager() throws InterruptedException {
-		System.setProperty("org.uncommons.reportng.escape-output", "false");
+		
 		logger.info("Inside Login Test");
 		driver.findElement(By.cssSelector(OR.getProperty("bmlBtn"))).click();
 		
