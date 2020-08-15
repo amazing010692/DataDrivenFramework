@@ -4,9 +4,9 @@
            failures="1"
            errors="0"
            skipped="0"
-           time="3.858">
+           time="1.690">
   <properties />
-            <testcase name="addCustomer" time="3.858" classname="io.github.amazing010692.testcases.AddCustomerTest">
+            <testcase name="addCustomer" time="1.690" classname="io.github.amazing010692.testcases.AddCustomerTest">
                 <failure type="java.lang.AssertionError"
                   message="Customer not added successfully"
               >

@@ -26,12 +26,12 @@
       <![CDATA[<a target="blank" href="C:\Users\hello\Pictures\screenshots\error.jpg"><img src="C:\Users\hello\Pictures\screenshots\error.jpg" height=200 width=200></img></a>]]>
     </line>
   </reporter-output>
-  <suite name="Data Driven Basics" duration-ms="7707" started-at="2020-08-14T16:59:06Z" finished-at="2020-08-14T16:59:14Z">
+  <suite name="Data Driven Basics" duration-ms="6764" started-at="2020-08-14T17:40:23Z" finished-at="2020-08-14T17:40:30Z">
     <groups>
     </groups>
-    <test name="Bank Manager Login Test" duration-ms="1599" started-at="2020-08-14T16:59:06Z" finished-at="2020-08-14T16:59:07Z">
+    <test name="Bank Manager Login Test" duration-ms="2579" started-at="2020-08-14T17:40:23Z" finished-at="2020-08-14T17:40:26Z">
       <class name="io.github.amazing010692.testcases.BankManagerLoginTest">
-        <test-method status="FAIL" signature="loginAsBankManager()[pri:0, instance:io.github.amazing010692.testcases.BankManagerLoginTest@4e858e0a]" name="loginAsBankManager" duration-ms="1378" started-at="2020-08-14T16:59:06Z" finished-at="2020-08-14T16:59:07Z">
+        <test-method status="FAIL" signature="loginAsBankManager()[pri:0, instance:io.github.amazing010692.testcases.BankManagerLoginTest@4e858e0a]" name="loginAsBankManager" duration-ms="1962" started-at="2020-08-14T17:40:23Z" finished-at="2020-08-14T17:40:25Z">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[Login not successful]]>
@@ -85,13 +85,13 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
         </test-method> <!-- loginAsBankManager -->
       </class> <!-- io.github.amazing010692.testcases.BankManagerLoginTest -->
     </test> <!-- Bank Manager Login Test -->
-    <test name="Add Customer Test" duration-ms="5279" started-at="2020-08-14T16:59:08Z" finished-at="2020-08-14T16:59:14Z">
+    <test name="Add Customer Test" duration-ms="3432" started-at="2020-08-14T17:40:27Z" finished-at="2020-08-14T17:40:30Z">
       <class name="io.github.amazing010692.testcases.AddCustomerTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:io.github.amazing010692.testcases.AddCustomerTest@4ba302e0]" name="setUp" is-config="true" duration-ms="55792" started-at="2020-08-14T16:58:10Z" finished-at="2020-08-14T16:59:06Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:io.github.amazing010692.testcases.AddCustomerTest@4ba302e0]" name="setUp" is-config="true" duration-ms="40426" started-at="2020-08-14T17:39:43Z" finished-at="2020-08-14T17:40:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="FAIL" signature="addCustomer(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:io.github.amazing010692.testcases.AddCustomerTest@4ba302e0]" name="addCustomer" duration-ms="3858" started-at="2020-08-14T16:59:10Z" data-provider="getData" finished-at="2020-08-14T16:59:14Z">
+        <test-method status="FAIL" signature="addCustomer(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:io.github.amazing010692.testcases.AddCustomerTest@4ba302e0]" name="addCustomer" duration-ms="1690" started-at="2020-08-14T17:40:29Z" data-provider="getData" finished-at="2020-08-14T17:40:30Z">
           <params>
             <param index="0">
               <value>
@@ -165,7 +165,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
             </line>
           </reporter-output>
         </test-method> <!-- addCustomer -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:io.github.amazing010692.testcases.AddCustomerTest@4ba302e0]" name="tearDown" is-config="true" duration-ms="2795" started-at="2020-08-14T16:59:14Z" finished-at="2020-08-14T16:59:16Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:io.github.amazing010692.testcases.AddCustomerTest@4ba302e0]" name="tearDown" is-config="true" duration-ms="1151" started-at="2020-08-14T17:40:30Z" finished-at="2020-08-14T17:40:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
