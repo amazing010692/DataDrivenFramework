@@ -16,9 +16,9 @@ public class TestUtil extends TestBase {
 	
 	public static void captureScreenshot() throws IOException {
 		File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		screenshotName = "error";
+		screenshotName = "error.jpg";
 		FileUtils.copyFile(srcFile, new File(System.getProperty("user.dir") + 
-				"\\target\\surefire-reports\\html\\" + screenshotName + ".jpg"));
+				"\\target\\surefire-reports\\html\\" + screenshotName));
 	}
 
 }

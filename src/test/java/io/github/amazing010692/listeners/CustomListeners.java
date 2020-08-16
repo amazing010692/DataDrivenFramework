@@ -33,10 +33,10 @@ public class CustomListeners implements ITestListener {
 			e.printStackTrace();
 		}
 		Reporter.log("Capturing screenshot");
-		Reporter.log("<a target=\"blank\" href=\"C:\\Users\\hello\\Pictures\\screenshots\\error.jpg\">Screenshot</a>");
+		Reporter.log("<a target=\"blank\" href=" + TestUtil.screenshotName + ">Screenshot</a>");
 		Reporter.log("<br>");
-		Reporter.log("<a target=\"blank\" href=\"C:\\Users\\hello\\Pictures\\screenshots\\error.jpg\"><img src=\"C:\\Users"
-				+ "\\hello\\Pictures\\screenshots\\error.jpg\" height=200 width=200></img></a>");
+		Reporter.log("<a target=\"blank\" href=" + TestUtil.screenshotName + "><img src=" + 
+		TestUtil.screenshotName + " height=200 width=200></img></a>");
 		
 	}
 
