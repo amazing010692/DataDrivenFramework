@@ -32,8 +32,9 @@ public class CustomListeners implements ITestListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Reporter.log("Capturing screenshot");
+		Reporter.log("Click to see Screenshot");
 		Reporter.log("<a target=\"blank\" href=" + TestUtil.screenshotName + ">Screenshot</a>");
+		Reporter.log("<br>");
 		Reporter.log("<br>");
 		Reporter.log("<a target=\"blank\" href=" + TestUtil.screenshotName + "><img src=" + 
 		TestUtil.screenshotName + " height=200 width=200></img></a>");
