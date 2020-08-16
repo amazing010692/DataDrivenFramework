@@ -12,9 +12,13 @@ import io.github.amazing010692.base.TestBase;
 public class TestUtil extends TestBase {
 	
 	public static String screenshotPath;
+	public static String screenshotName;
+	
 	public static void captureScreenshot() throws IOException {
 		File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(srcFile, new File(System.getProperty("user.dir") + "\\target\\surefire-reports\\html\\error.jpg"));
+		screenshotName = "error";
+		FileUtils.copyFile(srcFile, new File(System.getProperty("user.dir") + 
+				"\\target\\surefire-reports\\html\\" + screenshotName + ".jpg"));
 	}
 
 }
