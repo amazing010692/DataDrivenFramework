@@ -12,6 +12,9 @@ import org.testng.Reporter;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.Markup;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
 
 import io.github.amazing010692.base.TestBase;
 import io.github.amazing010692.utilities.ExtentManager;
@@ -36,7 +39,10 @@ public class CustomListeners extends TestBase implements ITestListener, ISuiteLi
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
-		// TODO Auto-generated method stub
+		String methodName=result.getMethod().getMethodName();
+		String logText="<b>"+"TEST CASE:- "+ methodName.toUpperCase()+ " PASSED"+"</b>";		
+		Markup m  =MarkupHelper.createLabel(logText, ExtentColor.GREEN);
+		testReport.get().pass(m);
 		
 	}
 
