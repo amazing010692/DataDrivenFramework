@@ -9,7 +9,6 @@ import org.testng.ISuiteListener;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import org.testng.Reporter;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -99,13 +98,16 @@ public class CustomListeners extends TestBase implements ITestListener, ISuiteLi
 
 	@Override
 	public void onStart(ISuite suite) {
-		// TODO Auto-generated method stub
+		// Insert here monitoring mail code
 		
 	}
 
 	@Override
 	public void onFinish(ISuite suite) {
-		// TODO Auto-generated method stub
+		if (extent != null) {
+
+			extent.flush();
+		}
 		
 	}
 
