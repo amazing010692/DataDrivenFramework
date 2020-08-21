@@ -2,15 +2,26 @@ package io.github.amazing010692.listeners;
 
 import java.io.IOException;
 
+import org.testng.ISuite;
 import org.testng.ISuiteListener;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 
+import com.aventstack.extentreports.ExtentTest;
+
+import io.github.amazing010692.base.TestBase;
 import io.github.amazing010692.utilities.TestUtil;
 
 public class CustomListeners extends TestBase implements ITestListener, ISuiteListener {
+	
+
+	static Date d = new Date();
+	static String fileName = "Extent_" + d.toString().replace(":", "_").replace(" ", "_") + ".html";
+	static String messageBody;
+	private static ExtentReports extent = ExtentManager.createInstance(System.getProperty("user.dir")+"\\reports\\"+fileName);
+	public static ThreadLocal<ExtentTest> testReport = new ThreadLocal<ExtentTest>();
 
 	@Override
 	public void onTestStart(ITestResult result) {
@@ -62,6 +73,18 @@ public class CustomListeners extends TestBase implements ITestListener, ISuiteLi
 
 	@Override
 	public void onFinish(ITestContext context) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onStart(ISuite suite) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onFinish(ISuite suite) {
 		// TODO Auto-generated method stub
 		
 	}
