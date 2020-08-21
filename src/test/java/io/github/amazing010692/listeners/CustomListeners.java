@@ -2,6 +2,7 @@ package io.github.amazing010692.listeners;
 
 import java.io.IOException;
 
+import org.testng.ISuiteListener;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -9,7 +10,7 @@ import org.testng.Reporter;
 
 import io.github.amazing010692.utilities.TestUtil;
 
-public class CustomListeners implements ITestListener {
+public class CustomListeners extends TestBase implements ITestListener, ISuiteListener {
 
 	@Override
 	public void onTestStart(ITestResult result) {
