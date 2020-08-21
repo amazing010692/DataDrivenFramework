@@ -12,6 +12,7 @@ import org.testng.Reporter;
 import com.aventstack.extentreports.ExtentTest;
 
 import io.github.amazing010692.base.TestBase;
+import io.github.amazing010692.utilities.ExtentManager;
 import io.github.amazing010692.utilities.TestUtil;
 
 public class CustomListeners extends TestBase implements ITestListener, ISuiteListener {
