@@ -28,7 +28,9 @@ public class CustomListeners extends TestBase implements ITestListener, ISuiteLi
 
 	@Override
 	public void onTestStart(ITestResult result) {
-		// TODO Auto-generated method stub
+		
+		ExtentTest test = extent.createTest(result.getTestClass().getName()+"     @TestCase : "+result.getMethod().getMethodName());
+        testReport.set(test);
 		
 	}
 
