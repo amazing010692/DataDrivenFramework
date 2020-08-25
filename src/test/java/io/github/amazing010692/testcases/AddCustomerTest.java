@@ -17,7 +17,7 @@ public class AddCustomerTest extends TestBase {
 		type("firstname", firstName);
 		type("lastname", lastName);
 		type("postcode", postCode);
-		driver.findElement(By.cssSelector(OR.getProperty("addBtn"))).click();
+		click("addBtn");
 		
 		Alert alert = wait.until(ExpectedConditions.alertIsPresent());
 		Assert.assertTrue(alert.getText().contains(alertText));
