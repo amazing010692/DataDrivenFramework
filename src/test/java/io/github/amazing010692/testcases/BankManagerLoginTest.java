@@ -12,7 +12,7 @@ public class BankManagerLoginTest extends TestBase {
 	public void loginAsBankManager() throws InterruptedException {
 		
 		logger.info("Inside Login Test");
-		click("bmlBtn");
+		click("bmlBtn_CSS");
 		
 		Assert.assertTrue(isElementPresent(By.cssSelector(OR.getProperty("addCustBtn"))), "Login not successful");
 		
