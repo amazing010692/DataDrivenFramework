@@ -15,8 +15,7 @@ public class AddCustomerTest extends TestBase {
 	public void addCustomer(String firstName, String lastName, String postCode, String alertText) throws InterruptedException {
 		click("addCustBtn");
 		type("firstname", firstName);
-		driver.findElement(By.cssSelector(OR.getProperty("firstname"))).sendKeys(firstName);
-		driver.findElement(By.cssSelector(OR.getProperty("lastname"))).sendKeys(lastName);
+		type("lastname", lastName);
 		driver.findElement(By.cssSelector(OR.getProperty("postcode"))).sendKeys(postCode);
 		driver.findElement(By.cssSelector(OR.getProperty("addBtn"))).click();
 		
