@@ -12,11 +12,11 @@ public class AddCustomerTest extends TestBase {
 	
 	@Test(dataProvider = "getData")
 	public void addCustomer(String firstName, String lastName, String postCode, String alertText) throws InterruptedException {
-		click("addCustBtn");
-		type("firstname", firstName);
-		type("lastname", lastName);
-		type("postcode", postCode);
-		click("addBtn");
+		click("addCustBtn_CSS");
+		type("firstname_CSS", firstName);
+		type("lastname_XPATH", lastName);
+		type("postcode_CSS", postCode);
+		click("addBtn_CSS");
 		
 		Alert alert = wait.until(ExpectedConditions.alertIsPresent());
 		Assert.assertTrue(alert.getText().contains(alertText));
