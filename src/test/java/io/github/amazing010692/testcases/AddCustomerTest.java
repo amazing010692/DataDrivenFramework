@@ -10,7 +10,7 @@ import io.github.amazing010692.utilities.TestUtil;
 
 public class AddCustomerTest extends TestBase {
 	
-	@Test(dataProviderClass = TestUtil.class)
+	@Test(dataProviderClass = TestUtil.class, dataProvider = "dp")
 	public void addCustomerTest(String firstName, String lastName, String postCode, String alertText) throws InterruptedException {
 		click("addCustBtn_CSS");
 		type("firstname_CSS", firstName);
