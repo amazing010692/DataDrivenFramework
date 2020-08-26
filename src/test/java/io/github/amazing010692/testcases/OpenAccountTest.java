@@ -17,7 +17,7 @@ public class OpenAccountTest extends TestBase {
 	
 	@DataProvider
 	public Object[][] getData() {
-		String sheetName = "AddCustomerTest";
+		String sheetName = "OpenAccountTest";
 		int rows = excel.getRowCount(sheetName);
 		int cols = excel.getColumnCount(sheetName);
 		
