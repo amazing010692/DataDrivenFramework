@@ -11,20 +11,8 @@ import io.github.amazing010692.base.TestBase;
 public class OpenAccountTest extends TestBase {
 	
 	@Test(dataProvider = "getData")
-	public void openAccountTest(String firstName, String lastName, String postCode, String alertText) throws InterruptedException {
-		click("addCustBtn_CSS");
-		type("firstname_CSS", firstName);
-		type("lastname_XPATH", lastName);
-		type("postcode_CSS", postCode);
-		click("addBtn_CSS");
+	public void openAccountTest(String customer, String currency) throws InterruptedException {
 		
-		Alert alert = wait.until(ExpectedConditions.alertIsPresent());
-		Assert.assertTrue(alert.getText().contains(alertText));
-		alert.accept();
-		
-		logger.info("Successfully Added a Customer");
-		
-		Assert.fail("Customer not added successfully");
 	}
 	
 	@DataProvider
