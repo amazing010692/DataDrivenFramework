@@ -29,7 +29,7 @@ public class TestUtil extends TestBase {
 	
 	@DataProvider(name = "dp")
 	public Object[][] getData(Method m) {
-		String sheetName = "OpenAccountTest";
+		String sheetName = m.getName();
 		int rows = excel.getRowCount(sheetName);
 		int cols = excel.getColumnCount(sheetName);
 		
