@@ -2,6 +2,7 @@ package io.github.amazing010692.utilities;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
@@ -26,8 +27,8 @@ public class TestUtil extends TestBase {
 				"\\target\\surefire-reports\\html\\" + screenshotName));
 	}
 	
-	@DataProvider
-	public Object[][] getData() {
+	@DataProvider(name = "dp")
+	public Object[][] getData(Method m) {
 		String sheetName = "OpenAccountTest";
 		int rows = excel.getRowCount(sheetName);
 		int cols = excel.getColumnCount(sheetName);
