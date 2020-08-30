@@ -186,18 +186,13 @@ public class TestBase {
 			// ReportNG
 			System.setProperty("org.uncommons.reportng.escape-output", "false");
 			Reporter.log("<br>" + "Verification failure : " + t.getMessage() + "<br>");
-			Reporter.log("<a href = TestUtil.screenshotName target = \"_blank\">Screenshot Link</a>");
-			Reporter.log("<br>");
-			Reporter.log("<a href = TestUtil.screenshotName target = \"_blank\">"
-					+ "<img height= 200 width = 200 src = TestUtil.screenshotName></a>");
-			/**Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src=" + TestUtil.screenshotName
+			Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src=" + TestUtil.screenshotName
 					+ " height=200 width=200></img></a>");
 			Reporter.log("<br>");
-			Reporter.log("<br>");***/
+			Reporter.log("<br>");
 			// Extent Reports
 			CustomListeners.testReport.get().log(Status.FAIL, " Verification failed with exception : " + t.getMessage());
 			//CustomListeners.testReport.get().log(Status.FAIL, CustomListeners.testReport.get().addScreenCaptureFromPath(TestUtil.screenshotName));
-
 		}
 
 	}
