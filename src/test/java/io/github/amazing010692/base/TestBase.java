@@ -184,6 +184,7 @@ public class TestBase {
 
 			TestUtil.captureScreenshot();
 			// ReportNG
+			System.setProperty("org.uncommons.reportng.escape-output", "false");
 			Reporter.log("<br>" + "Verification failure : " + t.getMessage() + "<br>");
 			Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src=" + TestUtil.screenshotName
 					+ " height=200 width=200></img></a>");
