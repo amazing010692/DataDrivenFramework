@@ -1,5 +1,7 @@
 package io.github.amazing010692.testcases;
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -9,8 +11,10 @@ import io.github.amazing010692.base.TestBase;
 public class BankManagerLoginTest extends TestBase {
 	
 	@Test
-	public void loginAsBankManager() throws InterruptedException {
+	public void loginAsBankManager() throws InterruptedException, IOException {
 		
+		verifyEquals("abc", "xyz");
+		Thread.sleep(3000);
 		logger.info("Inside Login Test");
 		click("bmlBtn_CSS");
 		
