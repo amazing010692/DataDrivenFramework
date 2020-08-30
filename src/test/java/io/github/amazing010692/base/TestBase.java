@@ -189,7 +189,7 @@ public class TestBase {
 					+ " height=200 width=200></img></a>");
 			Reporter.log("<br>");
 			Reporter.log("<br>");
-			//   Reports
+			// Extent Reports
 			CustomListeners.testReport.get().log(Status.FAIL, " Verification failed with exception : " + t.getMessage());
 			//CustomListeners.testReport.get().log(Status.FAIL, CustomListeners.testReport.get().addScreenCaptureFromPath(TestUtil.screenshotName));
 
