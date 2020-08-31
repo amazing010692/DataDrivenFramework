@@ -17,15 +17,4 @@
       </class> <!-- io.github.amazing010692.testcases.BankManagerLoginTest -->
     </classes>
   </test> <!-- Bank Manager Login Test(failed) -->
-  <test thread-count="5" name="Add Customer Test(failed)">
-    <classes>
-      <class name="io.github.amazing010692.testcases.AddCustomerTest">
-        <methods>
-          <include name="addCustomerTest" invocation-numbers="0"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- io.github.amazing010692.testcases.AddCustomerTest -->
-    </classes>
-  </test> <!-- Add Customer Test(failed) -->
 </suite> <!-- Failed suite [Data Driven Basics] -->
