@@ -17,6 +17,7 @@ public class AddCustomerTest extends TestBase {
 		type("lastname_XPATH", lastName);
 		type("postcode_CSS", postCode);
 		click("addBtn_CSS");
+		Thread.sleep(2000);
 		
 		Alert alert = wait.until(ExpectedConditions.alertIsPresent());
 		Assert.assertTrue(alert.getText().contains(alertText));
@@ -25,6 +26,7 @@ public class AddCustomerTest extends TestBase {
 		logger.info("Successfully Added a Customer");
 		
 		Assert.fail("Customer not added successfully");
+		Thread.sleep(2000);
 	}
 	
 
