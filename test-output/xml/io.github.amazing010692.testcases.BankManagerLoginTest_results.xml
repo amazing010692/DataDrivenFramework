@@ -4,9 +4,9 @@
            failures="1"
            errors="0"
            skipped="0"
-           time="4.764">
+           time="5.381">
   <properties />
-            <testcase name="loginAsBankManager" time="4.764" classname="io.github.amazing010692.testcases.BankManagerLoginTest">
+            <testcase name="loginAsBankManager" time="5.381" classname="io.github.amazing010692.testcases.BankManagerLoginTest">
                 <failure type="java.lang.AssertionError"
                   message="Login not successful"
               >
