@@ -35,8 +35,7 @@ public class CustomListeners extends TestBase implements ITestListener, ISuiteLi
 	public void onTestStart(ITestResult result) {	
 		ExtentTest test = extent.createTest(result.getTestClass().getName()+"     @TestCase : "+result.getMethod().getMethodName());
         testReport.set(test);
-        
-		
+        	
 	}
 
 	@Override
