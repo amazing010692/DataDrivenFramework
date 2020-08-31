@@ -13,34 +13,52 @@ import org.testng.annotations.DataProvider;
 import io.github.amazing010692.base.TestBase;
 
 public class TestUtil extends TestBase {
-	
+
 	public static String screenshotPath;
 	public static String screenshotName;
-	
+
 	public static void captureScreenshot() throws IOException {
-		File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		
+		File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+
 		Date d = new Date();
 		screenshotName = d.toString().replace(":", "_").replace(" ", "_") + ".jpg";
-		
-		FileUtils.copyFile(srcFile, new File(System.getProperty("user.dir") + 
-				"\\target\\surefire-reports\\html\\" + screenshotName));
+
+		FileUtils.copyFile(srcFile,
+				new File(System.getProperty("user.dir") + "\\target\\surefire-reports\\html\\" + screenshotName));
 	}
-	
+
 	@DataProvider(name = "dp")
 	public Object[][] getData(Method m) {
 		String sheetName = m.getName();
 		int rows = excel.getRowCount(sheetName);
 		int cols = excel.getColumnCount(sheetName);
-		
+
 		Object[][] data = new Object[rows - 1][cols];
-		
-		for (int rowNum = 2; rowNum <= rows; rowNum++) {	//2
+
+		for (int rowNum = 2; rowNum <= rows; rowNum++) { // 2
 			for (int colNum = 0; colNum < cols; colNum++) {
-				data[rowNum - 2][colNum] = excel.getCellData(sheetName, colNum, rowNum);	//2
+				data[rowNum - 2][colNum] = excel.getCellData(sheetName, colNum, rowNum); // 2
 			}
 		}
 		return data;
+	}
+
+	public static boolean isTestRunnable(String testName, ExcelReader excel) {
+
+		String sheetName = "test_suite";
+		int rows = excel.getRowCount(sheetName);
+		for (int rNum = 2; rNum <= rows; rNum++) {
+			String testCase = excel.getCellData(sheetName, "TCID", rNum);
+			if (testCase.equalsIgnoreCase(testName)) {
+				String runmode = excel.getCellData(sheetName, "Runmode", rNum);
+				if (runmode.equalsIgnoreCase("Y"))
+					return true;
+				else
+					return false;
+			}
+
+		}
+		return false;
 	}
 
 }
