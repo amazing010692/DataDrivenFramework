@@ -25,7 +25,6 @@ public class AddCustomerTest extends TestBase {
 		
 		logger.info("Successfully Added a Customer");
 		
-		Assert.fail("Customer not added successfully");
 		Thread.sleep(2000);
 	}
 	

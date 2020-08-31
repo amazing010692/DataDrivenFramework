@@ -19,7 +19,7 @@ public class OpenAccountTest extends TestBase {
 		
 		Alert alert = wait.until(ExpectedConditions.alertIsPresent());
 		alert.accept();
-		
+		logger.info("Successfully Opened an Account");
 	}
 	
 }
