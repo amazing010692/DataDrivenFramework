@@ -36,24 +36,27 @@ import io.github.amazing010692.utilities.TestUtil;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestBase {
-	
+
 	public static WebDriver driver;
 	public static Properties config = new Properties();
 	public static Properties OR = new Properties();
 	public static FileInputStream fis;
 	public static final Logger logger = LogManager.getLogger(TestBase.class.getName());
-	public static ExcelReader excel = new ExcelReader(System.getProperty("user.dir") + "\\src\\test\\resources\\excel\\testdata.xlsx");
+	public static ExcelReader excel = new ExcelReader(
+			System.getProperty("user.dir") + "\\src\\test\\resources\\excel\\testdata.xlsx");
 	public static WebDriverWait wait;
-	
+	public static String browser;
+
 	@BeforeSuite
 	public void setUp() {
-		if(driver == null) {
+		if (driver == null) {
 			LoggerContext context = (LoggerContext) LogManager.getContext(false);
 			File file = new File("./src/test/resources/logs/log4j2.xml");
 			context.setConfigLocation(file.toURI());
-			
+
 			try {
-				fis = new FileInputStream(System.getProperty("user.dir") + "\\src\\test\\resources\\properties\\Config.properties");
+				fis = new FileInputStream(
+						System.getProperty("user.dir") + "\\src\\test\\resources\\properties\\Config.properties");
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -65,9 +68,10 @@ public class TestBase {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 			try {
-				fis = new FileInputStream(System.getProperty("user.dir") + "\\src\\test\\resources\\properties\\OR.properties");
+				fis = new FileInputStream(
+						System.getProperty("user.dir") + "\\src\\test\\resources\\properties\\OR.properties");
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -79,47 +83,59 @@ public class TestBase {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-			if(config.getProperty("browser").equals("chrome")) {
+
+			if (System.getenv("browser") != null && !System.getenv("browser").isEmpty()) {
+
+				browser = System.getenv("browser");
+			} else {
+
+				browser = config.getProperty("browser");
+
+			}
+
+			config.setProperty("browser", browser);
+
+			if (config.getProperty("browser").equals("chrome")) {
 				WebDriverManager.chromedriver().setup();
 				driver = new ChromeDriver();
 				logger.info("Chrome Launched !!!");
-				
-			} else if(config.getProperty("browser").equals("firefox")) {
+
+			} else if (config.getProperty("browser").equals("firefox")) {
 				WebDriverManager.firefoxdriver().setup();
 				driver = new FirefoxDriver();
 				logger.info("Firefox Launched !!!");
-				
-			} else if(config.getProperty("browser").equals("ie")) {		
+
+			} else if (config.getProperty("browser").equals("ie")) {
 				WebDriverManager.iedriver().setup();
 				driver = new InternetExplorerDriver();
 				logger.info("IE Launched !!!");
-				
-			} else if(config.getProperty("browser").equals("edge")) {		
+
+			} else if (config.getProperty("browser").equals("edge")) {
 				WebDriverManager.edgedriver().setup();
 				driver = new EdgeDriver();
 				logger.info("Edge browser Launched !!!");
-			
-			} else if(config.getProperty("browser").equals("opera")) {		
+
+			} else if (config.getProperty("browser").equals("opera")) {
 				DesiredCapabilities capabilities = new DesiredCapabilities();
 				OperaOptions options = new OperaOptions();
 				options.setBinary("C:\\Users\\hello\\AppData\\Local\\Programs\\Opera\\64.0.3417.73\\opera.exe");
 				capabilities.setCapability(OperaOptions.CAPABILITY, options);
-				
+
 				WebDriverManager.operadriver().setup();
 				driver = new OperaDriver(options);
 				logger.info("Opera Launched !!!");
-			
+
 			}
-			
+
 			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(Integer.parseInt(config.getProperty("implicit.wait")), TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(Integer.parseInt(config.getProperty("implicit.wait")),
+					TimeUnit.SECONDS);
 			driver.get(config.getProperty("testsiteurl"));
 			logger.info("Navigated to: " + config.getProperty("testsiteurl"));
 			wait = new WebDriverWait(driver, 5);
 		}
 	}
-	
+
 	public void click(String locator) {
 
 		if (locator.endsWith("_CSS")) {
@@ -145,7 +161,7 @@ public class TestBase {
 		CustomListeners.testReport.get().log(Status.INFO, "Typing in : " + locator + " entered value as " + value);
 
 	}
-	
+
 	static WebElement dropdown;
 
 	public void select(String locator, String value) {
@@ -157,23 +173,24 @@ public class TestBase {
 		} else if (locator.endsWith("_ID")) {
 			dropdown = driver.findElement(By.id(OR.getProperty(locator)));
 		}
-		
+
 		Select select = new Select(dropdown);
 		select.selectByVisibleText(value);
 
-		CustomListeners.testReport.get().log(Status.INFO, "Selecting from dropdown : " + locator + " value as " + value);
+		CustomListeners.testReport.get().log(Status.INFO,
+				"Selecting from dropdown : " + locator + " value as " + value);
 
 	}
-	
+
 	public boolean isElementPresent(By by) {
 		try {
 			driver.findElement(by);
 			return true;
-		} catch(NoSuchElementException e) {
+		} catch (NoSuchElementException e) {
 			return false;
 		}
 	}
-	
+
 	public static void verifyEquals(String expected, String actual) throws IOException {
 
 		try {
@@ -191,18 +208,20 @@ public class TestBase {
 			Reporter.log("<br>");
 			Reporter.log("<br>");
 			// Extent Reports
-			CustomListeners.testReport.get().log(Status.FAIL, " Verification failed with exception : " + t.getMessage());
-			//CustomListeners.testReport.get().log(Status.FAIL, CustomListeners.testReport.get().addScreenCaptureFromPath(TestUtil.screenshotName));
+			CustomListeners.testReport.get().log(Status.FAIL,
+					" Verification failed with exception : " + t.getMessage());
+			// CustomListeners.testReport.get().log(Status.FAIL,
+			// CustomListeners.testReport.get().addScreenCaptureFromPath(TestUtil.screenshotName));
 		}
 
 	}
-	
+
 	@AfterSuite
 	public void tearDown() {
-		if(driver != null) {
+		if (driver != null) {
 			driver.quit();
 		}
-		
+
 		logger.info("Test Execution Completed !!!");
 	}
 
