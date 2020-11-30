@@ -3366,3 +3366,35 @@
 			io.github.amazing010692.base.TestBase:22:OpenAccountTest.java - Successfully Opened an Account
 2020-11-29 23:50:23,887 [main] [INFO ]
 			io.github.amazing010692.base.TestBase:225:TestBase.java - Test Execution Completed !!!
+2020-11-30 23:56:42,494 [main] [INFO ]
+			io.github.amazing010692.base.TestBase:66:TestBase.java - Config file loaded !!!
+2020-11-30 23:56:42,498 [main] [INFO ]
+			io.github.amazing010692.base.TestBase:81:TestBase.java - OR file loaded !!!
+2020-11-30 23:56:46,309 [main] [INFO ]
+			io.github.amazing010692.base.TestBase:101:TestBase.java - Chrome Launched !!!
+2020-11-30 23:56:51,824 [main] [INFO ]
+			io.github.amazing010692.base.TestBase:134:TestBase.java - Navigated to: http://www.way2automation.com/angularjs-protractor/banking/#/login
+2020-12-01 00:12:55,554 [main] [INFO ]
+			io.github.amazing010692.base.TestBase:66:TestBase.java - Config file loaded !!!
+2020-12-01 00:12:55,558 [main] [INFO ]
+			io.github.amazing010692.base.TestBase:81:TestBase.java - OR file loaded !!!
+2020-12-01 00:12:59,087 [main] [INFO ]
+			io.github.amazing010692.base.TestBase:101:TestBase.java - Chrome Launched !!!
+2020-12-01 00:13:02,776 [main] [INFO ]
+			io.github.amazing010692.base.TestBase:134:TestBase.java - Navigated to: http://www.way2automation.com/angularjs-protractor/banking/#/login
+2020-12-01 00:13:06,112 [main] [INFO ]
+			io.github.amazing010692.base.TestBase:18:BankManagerLoginTest.java - Inside Login Test
+2020-12-01 00:13:06,378 [main] [INFO ]
+			io.github.amazing010692.base.TestBase:23:BankManagerLoginTest.java - Login successfully executed
+2020-12-01 00:13:09,193 [main] [INFO ]
+			io.github.amazing010692.base.TestBase:26:AddCustomerTest.java - Successfully Added a Customer
+2020-12-01 00:13:13,407 [main] [INFO ]
+			io.github.amazing010692.base.TestBase:26:AddCustomerTest.java - Successfully Added a Customer
+2020-12-01 00:13:17,578 [main] [INFO ]
+			io.github.amazing010692.base.TestBase:26:AddCustomerTest.java - Successfully Added a Customer
+2020-12-01 00:13:21,768 [main] [INFO ]
+			io.github.amazing010692.base.TestBase:26:AddCustomerTest.java - Successfully Added a Customer
+2020-12-01 00:13:26,405 [main] [INFO ]
+			io.github.amazing010692.base.TestBase:22:OpenAccountTest.java - Successfully Opened an Account
+2020-12-01 00:13:27,104 [main] [INFO ]
+			io.github.amazing010692.base.TestBase:225:TestBase.java - Test Execution Completed !!!
