@@ -4,56 +4,55 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.amazing010692</groupId>
 	<artifactId>DataDrivenFramework</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
+	<name>Data Driven Test Automation Framework</name>
+	<description>Selenium WebDriver data-driven test automation framework using Java, TestNG, and Maven</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+		<selenium.version>3.141.59</selenium.version>
+		<testng.version>7.4.0</testng.version>
+		<webdrivermanager.version>5.3.3</webdrivermanager.version>
+		<extentreports.version>4.0.9</extentreports.version>
+		<poi.version>4.1.2</poi.version>
+		<log4j.version>2.23.1</log4j.version>
+		<commons-io.version>2.11.0</commons-io.version>
+	</properties>
 
 	<dependencies>
 
-		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<!-- Selenium WebDriver -->
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.21</version>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${selenium.version}</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java -->
+		<!-- WebDriver Manager - automatic driver binary management -->
 		<dependency>
-			<groupId>com.google.protobuf</groupId>
-			<artifactId>protobuf-java</artifactId>
-			<version>4.0.0-rc-2</version>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>${webdrivermanager.version}</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+		<!-- TestNG - test framework -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${testng.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- ExtentReports - HTML reporting -->
 		<dependency>
 			<groupId>com.aventstack</groupId>
 			<artifactId>extentreports</artifactId>
-			<version>4.0.9</version>
+			<version>${extentreports.version}</version>
 		</dependency>
 
-		<!-- This "mail 1.4.7" jar is added manually in the src/test/resources 
-			project folder -->
-		<dependency>
-			<groupId>test</groupId>
-			<artifactId>mail</artifactId>
-			<version>1.4.7</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/src/test/resources/mail-1.4.7.jar</systemPath>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
-		<dependency>
-			<groupId>javax.mail</groupId>
-			<artifactId>javax.mail-api</artifactId>
-			<version>1.6.2</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/com.google.inject/guice -->
-		<dependency>
-			<groupId>com.google.inject</groupId>
-			<artifactId>guice</artifactId>
-			<version>4.2.3</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.uncommons/reportng -->
+		<!-- ReportNG - additional TestNG reporting -->
 		<dependency>
 			<groupId>org.uncommons</groupId>
 			<artifactId>reportng</artifactId>
@@ -61,94 +60,56 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<!-- Google Guice - required by ReportNG -->
 		<dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
-			<version>6.14.3</version>
-			<scope>test</scope>
+			<groupId>com.google.inject</groupId>
+			<artifactId>guice</artifactId>
+			<version>5.1.0</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>3.141.59</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
-		<dependency>
-			<groupId>io.github.bonigarcia</groupId>
-			<artifactId>webdrivermanager</artifactId>
-			<version>4.0.0</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>2.7</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+		<!-- Apache POI - Excel data reading -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
-			<version>4.1.2</version>
+			<version>${poi.version}</version>
 		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
-			<version>4.1.2</version>
+			<version>${poi.version}</version>
 		</dependency>
 
-
-		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas -->
+		<!-- Log4j2 - logging (UPGRADED from 2.13.3 to fix CVE-2021-44228) -->
 		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml-schemas</artifactId>
-			<version>4.1.2</version>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>${log4j.version}</version>
 		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.dom4j/dom4j -->
 		<dependency>
-			<groupId>org.dom4j</groupId>
-			<artifactId>dom4j</artifactId>
-			<version>2.1.3</version>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j.version}</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/javax.activation/activation -->
+		<!-- Commons IO - file utilities -->
 		<dependency>
-			<groupId>javax.activation</groupId>
-			<artifactId>activation</artifactId>
-			<version>1.1.1</version>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io.version}</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
-		<dependency>
-			<groupId>javax.xml.bind</groupId>
-			<artifactId>jaxb-api</artifactId>
-			<version>2.4.0-b180830.0359</version>
-		</dependency>
-
-		<!-- https://logging.apache.org/log4j/2.x/maven-artifacts.html -->
-			<dependency>
-				<groupId>org.apache.logging.log4j</groupId>
-				<artifactId>log4j-api</artifactId>
-				<version>2.13.3</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.logging.log4j</groupId>
-				<artifactId>log4j-core</artifactId>
-				<version>2.13.3</version>
-			</dependency>
-
-		<!-- https://mvnrepository.com/artifact/ru.yandex.qatools.ashot/ashot -->
+		<!-- AShot - screenshot utility -->
 		<dependency>
 			<groupId>ru.yandex.qatools.ashot</groupId>
 			<artifactId>ashot</artifactId>
 			<version>1.5.4</version>
+		</dependency>
+
+		<!-- JavaMail - email notifications (replaces system-scoped JAR) -->
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+			<version>1.6.2</version>
 		</dependency>
 
 	</dependencies>
@@ -156,28 +117,35 @@
 	<build>
 		<plugins>
 
+			<!-- Compiler Plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.11.0</version>
+				<configuration>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
+				</configuration>
+			</plugin>
+
+			<!-- Surefire Plugin - test execution -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.0.0-M5</version>
+				<version>3.1.2</version>
 				<configuration>
-					<testFailureIgnore> false </testFailureIgnore>
+					<testFailureIgnore>false</testFailureIgnore>
 					<suiteXmlFiles>
 						<suiteXmlFile>src/test/resources/runner/testng.xml</suiteXmlFile>
-
 					</suiteXmlFiles>
 				</configuration>
-
 			</plugin>
 
 		</plugins>
 
 		<testResources>
 			<testResource>
-				<directory>src/test/resources/properties</directory>
-				<includes>
-					<include>log4j.properties</include>
-				</includes>
+				<directory>src/test/resources</directory>
 			</testResource>
 		</testResources>
 
