@@ -26,7 +26,7 @@ import io.github.amazing010692.utilities.TestUtil;
 
 /**
  * CustomListeners - TestNG event listener for ExtentReports integration.
- * 
+ *
  * Hooks into test lifecycle events to:
  * - Create test entries in the report
  * - Log pass/fail/skip status

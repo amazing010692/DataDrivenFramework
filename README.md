@@ -86,11 +86,11 @@ This framework automates browser-based UI testing for a banking web application 
 |-----------|-----------|---------|
 | Language | Java | 11+ |
 | Build Tool | Maven | 3.6+ |
-| Test Framework | TestNG | 7.4.0 |
-| Browser Automation | Selenium WebDriver | 3.141.59 |
-| Driver Management | WebDriverManager | 5.3.3 |
+| Test Framework | TestNG | 7.10.2 |
+| Browser Automation | Selenium WebDriver | 4.21.0 |
+| Driver Management | WebDriverManager | 5.8.0 |
 | Reporting | ExtentReports | 4.0.9 |
-| Data Source | Apache POI (Excel) | 4.1.2 |
+| Data Source | Apache POI (Excel) | 5.2.5 |
 | Logging | Log4j2 | 2.23.1 |
 | CI/CD | GitHub Actions | - |
 
@@ -353,12 +353,9 @@ A: Locators are stored in `OR.properties` with a suffix indicating type (`_CSS`,
 
 | Priority | Improvement |
 |----------|-------------|
-| High | Migrate to Selenium 4.x with modern WebDriver APIs |
 | High | Implement Page Object Model for better maintainability |
-| Medium | Add ThreadLocal WebDriver for true parallel execution |
-| Medium | Replace remaining Thread.sleep() with explicit waits |
 | Medium | Add OWASP dependency-check plugin |
-| Low | Add Docker support for containerized execution |
+| Medium | Add Docker support for containerized execution |
 | Low | Add API test layer |
 | Low | Implement test retry mechanism (IRetryAnalyzer) |
 

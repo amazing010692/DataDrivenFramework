@@ -28,7 +28,7 @@ public class TestUtil extends TestBase {
 	private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
 
 	public static void captureScreenshot() throws IOException {
-		File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		File srcFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
 
 		screenshotName = "screenshot_" + DATE_FORMAT.format(new Date()) + ".jpg";
 		String destPath = Paths.get(System.getProperty("user.dir"),

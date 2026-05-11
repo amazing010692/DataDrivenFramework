@@ -12,13 +12,13 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
-		<selenium.version>3.141.59</selenium.version>
-		<testng.version>7.4.0</testng.version>
-		<webdrivermanager.version>5.3.3</webdrivermanager.version>
+		<selenium.version>4.21.0</selenium.version>
+		<testng.version>7.10.2</testng.version>
+		<webdrivermanager.version>5.8.0</webdrivermanager.version>
 		<extentreports.version>4.0.9</extentreports.version>
-		<poi.version>4.1.2</poi.version>
+		<poi.version>5.2.5</poi.version>
 		<log4j.version>2.23.1</log4j.version>
-		<commons-io.version>2.11.0</commons-io.version>
+		<commons-io.version>2.16.1</commons-io.version>
 	</properties>
 
 	<dependencies>
@@ -50,21 +50,6 @@
 			<groupId>com.aventstack</groupId>
 			<artifactId>extentreports</artifactId>
 			<version>${extentreports.version}</version>
-		</dependency>
-
-		<!-- ReportNG - additional TestNG reporting -->
-		<dependency>
-			<groupId>org.uncommons</groupId>
-			<artifactId>reportng</artifactId>
-			<version>1.1.4</version>
-			<scope>test</scope>
-		</dependency>
-
-		<!-- Google Guice - required by ReportNG -->
-		<dependency>
-			<groupId>com.google.inject</groupId>
-			<artifactId>guice</artifactId>
-			<version>5.1.0</version>
 		</dependency>
 
 		<!-- Apache POI - Excel data reading -->

@@ -10,14 +10,14 @@ import io.github.amazing010692.base.TestBase;
 
 /**
  * BankManagerLoginTest - Validates the Bank Manager login flow.
- * 
+ *
  * Verifies that clicking the Bank Manager Login button
  * navigates to the manager dashboard with expected elements.
  */
 public class BankManagerLoginTest extends TestBase {
 
 	@Test
-	public void loginAsBankManager() throws InterruptedException, IOException {
+	public void loginAsBankManager() throws IOException {
 		logger.info("Starting Bank Manager Login Test");
 		click("bmlBtn_CSS");
 

@@ -4,8 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.time.Duration;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,13 +17,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 
 import com.aventstack.extentreports.Status;
 
@@ -34,9 +36,9 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 /**
  * TestBase - Foundation class for all test classes.
- * 
+ *
  * Responsibilities:
- * - WebDriver initialization and teardown
+ * - WebDriver initialization and teardown (ThreadLocal for parallel safety)
  * - Configuration loading (Config.properties, OR.properties)
  * - Reusable action methods (click, type, select)
  * - Logger initialization
@@ -46,23 +48,24 @@ public class TestBase {
 	private static final String BASE_DIR = System.getProperty("user.dir");
 	private static final String RESOURCES_PATH = Paths.get(BASE_DIR, "src", "test", "resources").toString();
 
-	public static WebDriver driver;
+	private static final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
 	public static Properties config = new Properties();
 	public static Properties OR = new Properties();
 	public static final Logger logger = LogManager.getLogger(TestBase.class.getName());
 	public static ExcelReader excel = new ExcelReader(
 			Paths.get(RESOURCES_PATH, "excel", "testdata.xlsx").toString());
-	public static WebDriverWait wait;
 	public static String browser;
 
-	@BeforeSuite
+	public static WebDriver getDriver() {
+		return driverThreadLocal.get();
+	}
+
+	@BeforeTest
 	public void setUp() {
-		if (driver == null) {
-			initializeLogger();
-			loadConfig();
-			loadObjectRepository();
-			initializeBrowser();
-		}
+		initializeLogger();
+		loadConfig();
+		loadObjectRepository();
+		initializeBrowser();
 	}
 
 	private void initializeLogger() {
@@ -96,47 +99,60 @@ public class TestBase {
 	}
 
 	private void initializeBrowser() {
-		// Environment variable takes precedence over config file
 		if (System.getenv("browser") != null && !System.getenv("browser").isEmpty()) {
 			browser = System.getenv("browser");
 		} else {
 			browser = config.getProperty("browser");
 		}
 		config.setProperty("browser", browser);
+		boolean headless = "true".equalsIgnoreCase(System.getenv("HEADLESS"));
 
+		WebDriver driver;
 		switch (browser.toLowerCase()) {
 			case "chrome":
 				WebDriverManager.chromedriver().setup();
 				ChromeOptions chromeOptions = new ChromeOptions();
-				if ("true".equalsIgnoreCase(System.getenv("HEADLESS"))) {
-					chromeOptions.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage");
+				if (headless) {
+					chromeOptions.addArguments("--headless=new", "--no-sandbox", "--disable-dev-shm-usage");
 				}
 				driver = new ChromeDriver(chromeOptions);
 				logger.info("Chrome launched");
 				break;
 			case "firefox":
 				WebDriverManager.firefoxdriver().setup();
-				driver = new FirefoxDriver();
+				FirefoxOptions firefoxOptions = new FirefoxOptions();
+				if (headless) {
+					firefoxOptions.addArguments("--headless");
+				}
+				driver = new FirefoxDriver(firefoxOptions);
 				logger.info("Firefox launched");
 				break;
 			case "edge":
 				WebDriverManager.edgedriver().setup();
-				driver = new EdgeDriver();
+				EdgeOptions edgeOptions = new EdgeOptions();
+				if (headless) {
+					edgeOptions.addArguments("--headless=new");
+				}
+				driver = new EdgeDriver(edgeOptions);
 				logger.info("Edge launched");
 				break;
 			default:
 				WebDriverManager.chromedriver().setup();
-				driver = new ChromeDriver();
+				ChromeOptions defaultOptions = new ChromeOptions();
+				if (headless) {
+					defaultOptions.addArguments("--headless=new", "--no-sandbox", "--disable-dev-shm-usage");
+				}
+				driver = new ChromeDriver(defaultOptions);
 				logger.warn("Browser '{}' not recognized. Defaulting to Chrome.", browser);
 				break;
 		}
 
+		driverThreadLocal.set(driver);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(
-				Integer.parseInt(config.getProperty("implicit.wait")), TimeUnit.SECONDS);
+				Duration.ofSeconds(Integer.parseInt(config.getProperty("implicit.wait"))));
 		driver.get(config.getProperty("testsiteurl"));
 		logger.info("Navigated to: " + config.getProperty("testsiteurl"));
-		wait = new WebDriverWait(driver, 5);
 	}
 
 	/**
@@ -145,11 +161,11 @@ public class TestBase {
 	private WebElement findElement(String locator) {
 		String value = OR.getProperty(locator);
 		if (locator.endsWith("_CSS")) {
-			return driver.findElement(By.cssSelector(value));
+			return getDriver().findElement(By.cssSelector(value));
 		} else if (locator.endsWith("_XPATH")) {
-			return driver.findElement(By.xpath(value));
+			return getDriver().findElement(By.xpath(value));
 		} else if (locator.endsWith("_ID")) {
-			return driver.findElement(By.id(value));
+			return getDriver().findElement(By.id(value));
 		}
 		throw new IllegalArgumentException("Locator suffix not recognized: " + locator
 				+ ". Use _CSS, _XPATH, or _ID.");
@@ -173,31 +189,38 @@ public class TestBase {
 
 	public boolean isElementPresent(By by) {
 		try {
-			driver.findElement(by);
+			getDriver().findElement(by);
 			return true;
 		} catch (NoSuchElementException e) {
 			return false;
 		}
 	}
 
+	public WebDriverWait getWait() {
+		return new WebDriverWait(getDriver(), Duration.ofSeconds(5));
+	}
+
 	public static void verifyEquals(String expected, String actual) throws IOException {
 		try {
 			Assert.assertEquals(actual, expected);
-		} catch (Throwable t) {
+		} catch (AssertionError e) {
 			TestUtil.captureScreenshot();
 			System.setProperty("org.uncommons.reportng.escape-output", "false");
-			Reporter.log("<br>Verification failure: " + t.getMessage() + "<br>");
+			Reporter.log("<br>Verification failure: " + e.getMessage() + "<br>");
 			Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src="
 					+ TestUtil.screenshotName + " height=200 width=200></img></a>");
 			CustomListeners.testReport.get().log(Status.FAIL,
-					"Verification failed: " + t.getMessage());
+					"Verification failed: " + e.getMessage());
+			throw e;
 		}
 	}
 
-	@AfterSuite
+	@AfterTest
 	public void tearDown() {
+		WebDriver driver = getDriver();
 		if (driver != null) {
 			driver.quit();
+			driverThreadLocal.remove();
 			logger.info("Test execution completed - browser closed");
 		}
 	}
