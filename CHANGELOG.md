@@ -19,7 +19,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - `.env.example` for environment variable documentation
 - GitHub Actions CI pipeline (`.github/workflows/ci.yml`)
 - Headless browser support for CI environments
-- `docs/PROJECT_ANALYSIS.md` with full architecture analysis
+- `docs/ARCHITECTURE.md` with architecture & design documentation
 - Javadoc comments on all classes
 - Cross-platform path handling throughout
 

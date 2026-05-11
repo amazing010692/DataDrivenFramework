@@ -2,60 +2,157 @@
 
 ## Overview
 
-This is a **Data-Driven Test Automation Framework** built with Selenium WebDriver, Java, TestNG, and Maven. It follows the Data-Driven Testing pattern where test logic is separated from test data.
+This is a **Data-Driven Test Automation Framework** built with Selenium WebDriver, Java, TestNG, and Maven. Test logic is separated from test data, allowing non-technical users to add scenarios via Excel without modifying code.
 
-## Design Patterns Used
+---
 
-| Pattern | Implementation |
-|---------|---------------|
-| Data-Driven Testing | Excel spreadsheets via Apache POI |
-| Object Repository | Properties file (`OR.properties`) with locator suffixes |
-| Template Method | `TestBase` provides lifecycle hooks, test classes override |
-| Listener Pattern | `CustomListeners` hooks into TestNG events |
-| Singleton | `ExtentManager` creates single report instance |
-
-## Data Flow
+## Module Structure
 
 ```
-testdata.xlsx → DataProvider → Test Method → WebDriver → Browser → Assertions → Report
+┌────────────────────────────────────────────────────┐
+│                  testng.xml (Runner)                │
+├────────────────────────────────────────────────────┤
+│                                                    │
+│  testcases/            listeners/                  │
+│  ├── BankManagerLogin  └── CustomListeners         │
+│  ├── AddCustomer           (ExtentReports +        │
+│  └── OpenAccount            Screenshots)           │
+│         │                                          │
+│         ▼                                          │
+│  base/TestBase                                     │
+│  ├── WebDriver init    ← Config.properties         │
+│  ├── click / type      ← OR.properties             │
+│  └── select / verify   ← Environment variables     │
+│         │                                          │
+│         ▼                                          │
+│  utilities/                                        │
+│  ├── ExcelReader       ← testdata.xlsx             │
+│  ├── TestUtil          (DataProvider + screenshots) │
+│  └── ExtentManager     (report configuration)      │
+│                                                    │
+└────────────────────────────────────────────────────┘
 ```
+
+---
+
+## Design Patterns
+
+| Pattern | Where | Purpose |
+|---------|-------|---------|
+| Data-Driven Testing | `TestUtil.getData()` + Excel | Separate test data from logic |
+| Object Repository | `OR.properties` | Centralize locators, reduce maintenance |
+| Template Method | `TestBase` → test classes | Shared setup/teardown, reusable actions |
+| Listener | `CustomListeners` | Hook into TestNG lifecycle for reporting |
+| Factory | `TestBase.initializeBrowser()` | Create browser instances by config |
+
+---
+
+## Test Execution Lifecycle
+
+```
+1. @BeforeSuite → TestBase.setUp()
+   ├── Load log4j2.xml
+   ├── Load Config.properties
+   ├── Load OR.properties
+   └── Initialize browser (Chrome/Firefox/Edge)
+
+2. TestNG reads testng.xml
+   └── Executes test classes in defined order
+
+3. For each @Test method:
+   ├── DataProvider reads matching Excel sheet
+   ├── Test actions execute (click, type, select)
+   ├── Assertions validate expected behavior
+   └── Listener logs result to ExtentReports
+
+4. On failure:
+   ├── Screenshot captured automatically
+   └── Stack trace logged to report
+
+5. @AfterSuite → TestBase.tearDown()
+   └── Browser closed, report flushed
+```
+
+---
 
 ## Configuration Hierarchy
 
-Environment variables override properties file values:
+Priority (highest to lowest):
 
-```
-1. System Environment Variables (highest priority)
-2. Config.properties (default values)
-```
+| Priority | Source | Example |
+|----------|--------|---------|
+| 1 | Environment variables | `browser=firefox mvn test` |
+| 2 | Config.properties | `browser = chrome` |
+
+---
 
 ## Locator Strategy
 
-Locators in `OR.properties` use a suffix convention:
-- `elementName_CSS` → resolved via `By.cssSelector()`
-- `elementName_XPATH` → resolved via `By.xpath()`
-- `elementName_ID` → resolved via `By.id()`
+Locators in `OR.properties` use a suffix convention that `TestBase.findElement()` auto-resolves:
 
-The `TestBase.findElement()` method auto-detects the strategy from the suffix.
+| Suffix | Strategy | Example |
+|--------|----------|---------|
+| `_CSS` | `By.cssSelector()` | `addBtn_CSS = button[type='submit']` |
+| `_XPATH` | `By.xpath()` | `lastname_XPATH = //input[@ng-model='lName']` |
+| `_ID` | `By.id()` | `customer_ID = userSelect` |
+
+---
 
 ## Test Data Convention
 
-The `@DataProvider` reads from Excel where:
-- **Sheet name** = test method name (e.g., `addCustomerTest`)
-- **Row 1** = column headers
-- **Row 2+** = test data rows (each row = one test iteration)
+The `@DataProvider(name = "dp")` in `TestUtil` reads Excel data where:
 
-## Reporting Architecture
+| Rule | Detail |
+|------|--------|
+| Sheet name | Must match the test method name exactly |
+| Row 1 | Column headers (not used as test data) |
+| Row 2+ | Each row = one test iteration |
+| Columns | Map to test method parameters in order |
 
-Dual reporting system:
-1. **ExtentReports** — Rich HTML with screenshots, collapsible stack traces
-2. **ReportNG** — Lightweight TestNG HTML reports
+Example: method `addCustomerTest(firstName, lastName, postCode, alertText)` reads from sheet `addCustomerTest` with 4 columns.
 
-Both are generated automatically via `CustomListeners`.
+---
 
-## Security Considerations
+## Reporting
 
-- Log4j 2.23.1 (patched against Log4Shell CVE-2021-44228)
+| Report | Generated By | Location |
+|--------|-------------|----------|
+| ExtentReports | `CustomListeners` + `ExtentManager` | `reports/Extent_*.html` |
+| ReportNG | TestNG listener in `testng.xml` | `test-output/html/` |
+| Surefire | Maven Surefire Plugin | `target/surefire-reports/` |
+
+---
+
+## How to Extend
+
+### Add a new test
+1. Add Excel sheet (sheet name = method name)
+2. Add locators to `OR.properties`
+3. Create class in `testcases/` extending `TestBase`
+4. Register in `testng.xml`
+
+### Add a new browser
+Add a `case` in `TestBase.initializeBrowser()`:
+```java
+case "safari":
+    driver = new SafariDriver();
+    break;
+```
+
+### Add a new locator strategy
+Extend `TestBase.findElement()` with a new suffix check:
+```java
+} else if (locator.endsWith("_NAME")) {
+    return driver.findElement(By.name(value));
+}
+```
+
+---
+
+## Security
+
+- Log4j 2.23.1 (patched against CVE-2021-44228)
 - No credentials in source code
-- Cross-platform paths (no hardcoded OS-specific paths)
-- `.gitignore` prevents accidental commit of sensitive files
+- Cross-platform paths via `java.nio.file.Paths`
+- `.gitignore` prevents commit of sensitive/generated files
+- Environment variables for runtime configuration

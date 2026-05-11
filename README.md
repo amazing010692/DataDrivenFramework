@@ -104,7 +104,7 @@ DataDrivenFramework/
 │   └── workflows/
 │       └── ci.yml                          # GitHub Actions CI pipeline
 ├── docs/
-│   └── PROJECT_ANALYSIS.md                 # Architecture & improvement docs
+│   └── ARCHITECTURE.md                     # Architecture & design documentation
 ├── src/test/
 │   ├── java/io/github/amazing010692/
 │   │   ├── base/
